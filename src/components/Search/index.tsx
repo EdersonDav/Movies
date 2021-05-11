@@ -23,22 +23,12 @@ const Search = () => {
       const genResponse = await getGens.get('');
       setMovies(moviesResponse.data.items);
       setGenres(genResponse.data.genres);
-      console.log(genResponse.data);
     };
     getMovies();
   }, []);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.value !== '') {
-      // const movs: IMovies[] = [];
-      // movies?.forEach(movie => {
-      //   if (
-      //     movs.length < 8 &&
-      //     movie.title.toLowerCase().includes(e.target.value.toLocaleLowerCase())
-      //   ) {
-      //     movs.push(movie);
-      //   }
-      // });
       setMoviesSearch(
         movies?.filter(movie =>
           movie.title.toLowerCase().includes(e.target.value.toLowerCase()),
@@ -60,9 +50,6 @@ const Search = () => {
         });
       }
     });
-
-    console.log(genresString);
-
     return `${genresString[0]}, ${genresString[1]}`;
   };
 
@@ -90,7 +77,7 @@ const Search = () => {
                   <h2>{movie.original_title}</h2>
                   <p>{handleGens(movie.genre_ids)}</p>
                   <span>
-                    <HiStar /> starts
+                    <HiStar /> {movie.vote_average}
                   </span>
                 </div>
               </Card>

@@ -93,7 +93,7 @@ export const Card = styled.div`
     margin-left: 20px;
     h2 {
       font-weight: 500;
-      font-size: 22px;
+      font-size: 18px;
     }
     p {
       margin-top: 5px;
