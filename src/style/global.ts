@@ -8,10 +8,10 @@ export default createGlobalStyle`
     outline: none;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
+    color: #eaeaea;
   }
   body{
     background: #1B1B1F;
-    color: #EAEAEA;
   }
   button{
     cursor: pointer;
