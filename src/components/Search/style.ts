@@ -49,6 +49,7 @@ export const InputDiv = styled.div`
     padding: 15px 5px;
     font-weight: 500;
     font-size: 30px;
+    color: #eaeaea;
   }
 `;
 
@@ -108,9 +109,6 @@ export const Card = styled.div`
       align-items: center;
       svg {
         margin-right: 10px;
-        * {
-          color: #fe3189;
-        }
       }
     }
   }

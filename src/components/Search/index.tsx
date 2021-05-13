@@ -1,7 +1,7 @@
 import { useEffect, useState, ChangeEvent } from 'react';
 import { HiStar } from 'react-icons/hi';
 
-import { getGens, getMovs } from 'service/api';
+import { getGens, searchMovies, KEY } from 'service/api';
 import { IMovies, IGenres } from 'helper/interfaces';
 
 import {
@@ -13,27 +13,25 @@ import {
 } from './style';
 
 const Search = () => {
-  const [movies, setMovies] = useState<IMovies[]>();
   const [genres, setGenres] = useState<IGenres[]>();
   const [moviesSearch, setMoviesSearch] = useState<IMovies[]>();
   const imageBaseUrl = 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/';
+  const imageDefault =
+    'https://image.freepik.com/vetores-gratis/noite-de-filme-pode-ser-usado-para-folheto-cartaz-banner-anuncio-e-fundo-do-site_7547-46.jpg';
   useEffect(() => {
     const getMovies = async () => {
-      const moviesResponse = await getMovs.get('');
       const genResponse = await getGens.get('');
-      setMovies(moviesResponse.data.items);
       setGenres(genResponse.data.genres);
     };
     getMovies();
   }, []);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value !== '') {
-      setMoviesSearch(
-        movies?.filter(movie =>
-          movie.title.toLowerCase().includes(e.target.value.toLowerCase()),
-        ),
+  const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value !== '' && e.target.value.length > 2) {
+      const moviesResponse = await searchMovies.get(
+        `movie?api_key=${KEY}&language=en-US&page=1&include_adult=false&query=${e.target.value}`,
       );
+      setMoviesSearch(moviesResponse.data.results);
     } else {
       setMoviesSearch([]);
     }
@@ -64,12 +62,15 @@ const Search = () => {
           />
         </InputDiv>
         <CardsWrapper>
-          {/* MAP */}
           {moviesSearch &&
             moviesSearch?.length > 0 &&
             moviesSearch.map(movie => (
               <Card
-                imageUrl={`${imageBaseUrl}${movie.poster_path}`}
+                imageUrl={
+                  movie.poster_path
+                    ? `${imageBaseUrl}${movie.poster_path}`
+                    : imageDefault
+                }
                 key={movie.id}
               >
                 <div />
@@ -77,7 +78,7 @@ const Search = () => {
                   <h2>{movie.original_title}</h2>
                   <p>{handleGens(movie.genre_ids)}</p>
                   <span>
-                    <HiStar /> {movie.vote_average}
+                    <HiStar color="#fe3189" /> {movie.vote_average}
                   </span>
                 </div>
               </Card>
