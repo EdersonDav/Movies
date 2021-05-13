@@ -59,6 +59,9 @@ export const HeaderNav = styled.nav`
       line-height: 24px;
       display: flex;
       align-items: center;
+      a{
+        color: #eaeaea;
+      }
       button {
         display: flex;
         align-items: center;

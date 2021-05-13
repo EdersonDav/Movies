@@ -1,9 +1,10 @@
 import Layout from 'components/Layout';
+import Slider from 'components/Slider';
 
 const Home = () => {
   return (
     <Layout>
-      <h1>Home</h1>
+      <Slider />
     </Layout>
   );
 };

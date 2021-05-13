@@ -1,10 +1,11 @@
 import { IProps } from 'helper/interfaces';
 import Header from '../Header';
+import { LayoutWrapper } from './style';
 
 const Layout = ({ children }: IProps) => (
   <div>
     <Header />
-    <div>{children}</div>
+    <LayoutWrapper>{children}</LayoutWrapper>
   </div>
 );
 

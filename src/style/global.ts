@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import section from 'assets/section.png';
 
 export default createGlobalStyle`
   *{
@@ -9,12 +8,10 @@ export default createGlobalStyle`
     outline: none;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
-    color: #eaeaea;
   }
   body{
     background: #1B1B1F;
-    background-image: url(${section});
-    background-repeat: no-repeat;
+    color: #eaeaea;
   }
   button{
     cursor: pointer;
