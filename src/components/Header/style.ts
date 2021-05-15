@@ -1,12 +1,13 @@
 /* eslint-disable prettier/prettier */
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
-  position: relative;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
 `;
 
 export const HeaderWrapper = styled.div`
-  width: 100%;
   height: 107px;
   display: flex;
   align-items: center;
@@ -42,14 +43,17 @@ export const HeaderTitle = styled.div`
 
 interface IHeaderNavProps {
   openSearch: boolean;
+  scrollIn: string;
 }
 
 export const HeaderNav = styled.nav`
   display: flex;
   align-items: center;
-  width: 35%;
+  width: 40%;
+  height: 100%;
   ul {
     width: 100%;
+    height: 100%;
     list-style: none;
     display: flex;
     align-items: center;
@@ -57,8 +61,23 @@ export const HeaderNav = styled.nav`
     li {
       font-size: 16px;
       line-height: 24px;
+      width: 112px;
       display: flex;
       align-items: center;
+      justify-content: center;
+      height: 100%;
+      ${({ scrollIn }: IHeaderNavProps) => scrollIn === 'home' ?
+    css`
+        &:first-child{
+          border-bottom: 2px solid #FE3189;
+        }
+      `:
+    css`
+        &:nth-child(2){
+          border-bottom: 2px solid #FE3189;
+        }
+      `
+  };
       a{
         color: #eaeaea;
       }
