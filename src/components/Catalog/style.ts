@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const CatalogWrapper = styled.div`
   display: flex;
@@ -47,6 +48,15 @@ export const CatalogButtons = styled.div`
           }
         `
       : null}
+
+  @media (max-width: 768px) {
+    button {
+      width: 124.17px;
+      min-height: 34.6px;
+      font-weight: 600;
+      font-size: 11.12px;
+    }
+  }
 `;
 
 export const SelectDiv = styled.div`
@@ -78,6 +88,16 @@ export const SelectDiv = styled.div`
     left: 20px;
     top: 35%;
   }
+  @media (max-width: 768px) {
+    &:last-child {
+      display: none;
+    }
+    width: 124.17px;
+    min-height: 34.6px;
+    select {
+      font-size: 11.12px;
+    }
+  }
 `;
 
 export const CatalogMoviesWrapper = styled.div`
@@ -90,7 +110,7 @@ export const CatalogMoviesWrapper = styled.div`
 
 interface ICardProps {
   imageUrl: string;
-  direction: string;
+  direction?: string;
 }
 export const Card = styled.div`
   margin-top: 15px;
@@ -152,5 +172,63 @@ export const Card = styled.div`
       color: #9f9fa0;
       word-wrap: break-word;
     }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const CardMobile = styled(Link)`
+  margin-top: 15px;
+  width: 100%;
+  flex-direction: column;
+  display: none;
+  margin-bottom: 38px;
+  color: #eaeaea;
+  > div {
+    display: flex;
+    div:first-child {
+      min-width: 129px;
+      min-height: 183px;
+      background-image: url(${({ imageUrl }: ICardProps) => imageUrl});
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    div:last-child {
+      margin-left: 14px;
+      h2 {
+        font-size: 21.1549px;
+        color: #eaeaea;
+      }
+      p {
+        margin-top: 5px;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 23px;
+        color: #fe3189;
+      }
+      span {
+        margin-top: 3px;
+        font-size: 15.3854px;
+        display: flex;
+        align-items: center;
+        svg {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  p {
+    margin-top: 20px;
+    font-weight: 300;
+    font-size: 12.5006px;
+    line-height: 19px;
+    color: #9f9fa0;
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
   }
 `;

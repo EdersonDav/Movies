@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { getGens, getMoviesWeek } from 'service/api';
 import { IMovies, IGenres } from 'helper/interfaces';
-import { imageBaseUrl, imageDefault } from 'utils/images';
+import { ImageBaseUrl, ImageDefault } from 'utils/images';
 import handleGens from 'helper/handleGens';
 
 import 'slick-carousel/slick/slick.css';
@@ -72,8 +72,8 @@ const Slider = () => {
               key={movie.id}
               imageUrl={
                 movie.poster_path
-                  ? `${imageBaseUrl}${movie.poster_path}`
-                  : imageDefault
+                  ? `${ImageBaseUrl}${movie.poster_path}`
+                  : ImageDefault
               }
             >
               <div>

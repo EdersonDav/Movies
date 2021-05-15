@@ -1,10 +1,16 @@
 import { useState } from 'react';
-import { CgSearch } from 'react-icons/cg';
+import { CgSearch, CgMenu } from 'react-icons/cg';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
 import Search from '../Search';
-import { HeaderWrapper, HeaderTitle, HeaderNav, Container } from './style';
+import {
+  HeaderWrapper,
+  HeaderTitle,
+  HeaderNav,
+  Container,
+  HeaderMobileWrapper,
+} from './style';
 
 const Header = () => {
   const [openSearch, setOpenSearch] = useState<boolean>(false);
@@ -47,6 +53,17 @@ const Header = () => {
           </ul>
         </HeaderNav>
       </HeaderWrapper>
+      <HeaderMobileWrapper openSearch={openSearch}>
+        <CgMenu size={24} />
+        <HeaderTitle>
+          <h1>SUNO</h1>
+          <span>MOVIES</span>
+        </HeaderTitle>
+
+        <button type="button" onClick={() => setOpenSearch(!openSearch)}>
+          <CgSearch />
+        </button>
+      </HeaderMobileWrapper>
       {openSearch && <Search />}
     </Container>
   );

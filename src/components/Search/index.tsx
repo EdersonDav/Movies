@@ -3,7 +3,7 @@ import { HiStar } from 'react-icons/hi';
 
 import { getGens, getMovieDefault, KEY } from 'service/api';
 import { IMovies, IGenres } from 'helper/interfaces';
-import { imageBaseUrl, imageDefault } from 'utils/images';
+import { ImageBaseUrl, ImageDefault } from 'utils/images';
 import handleGens from 'helper/handleGens';
 
 import {
@@ -55,8 +55,8 @@ const Search = () => {
                 to={`/${movie.id}`}
                 imageUrl={
                   movie.poster_path
-                    ? `${imageBaseUrl}${movie.poster_path}`
-                    : imageDefault
+                    ? `${ImageBaseUrl}${movie.poster_path}`
+                    : ImageDefault
                 }
                 key={movie.id}
               >

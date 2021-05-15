@@ -22,6 +22,9 @@ export const SearchContainer = styled.div`
   width: 100%;
   z-index: 2;
   overflow-y: hidden;
+  @media (max-width: 768px) {
+    top: 55px;
+  }
 `;
 
 export const SearchWrapper = styled.div`
@@ -38,6 +41,9 @@ export const SearchWrapper = styled.div`
   display: flex;
   flex-direction: column;
   animation: ${animation} 0.5s linear;
+  @media (max-width: 768px) {
+    padding: 0 24px;
+  }
 `;
 
 export const InputDiv = styled.div`
@@ -52,6 +58,13 @@ export const InputDiv = styled.div`
     font-size: 30px;
     color: #eaeaea;
   }
+  @media (max-width: 768px) {
+    margin: 15px 0;
+    input {
+      font-size: 18.42px;
+      border-bottom: 1px solid #fe3189;
+    }
+  }
 `;
 
 export const CardsWrapper = styled.div`
@@ -61,9 +74,14 @@ export const CardsWrapper = styled.div`
   justify-content: space-around;
   overflow-y: scroll;
   max-height: 50vh;
+
   &::-webkit-scrollbar {
     width: 6px;
     background: #212125;
+  }
+  @media (max-width: 768px) {
+    max-height: 78vh;
+    overflow-y: scroll;
   }
 `;
 

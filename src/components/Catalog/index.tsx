@@ -1,4 +1,4 @@
-import { useEffect, useState, ChangeEvent } from 'react';
+import { useEffect, useState, ChangeEvent, Fragment } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 import { HiStar } from 'react-icons/hi';
 import { FaRegPlayCircle } from 'react-icons/fa';
@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { getGens, KEY, getMovieDefault } from 'service/api';
 import { IMovies, IGenres } from 'helper/interfaces';
-import { imageBaseUrl, imageDefault } from 'utils/images';
+import { ImageBaseUrl, ImageDefault } from 'utils/images';
 import handleGens from 'helper/handleGens';
 
 import {
@@ -15,6 +15,7 @@ import {
   SelectDiv,
   CatalogMoviesWrapper,
   Card,
+  CardMobile,
 } from './style';
 
 const Catalog = () => {
@@ -128,34 +129,58 @@ const Catalog = () => {
           movies.map((movie, index) => {
             if (index < limit) {
               return (
-                <Card
-                  imageUrl={
-                    movie.poster_path
-                      ? `${imageBaseUrl}${movie.poster_path}`
-                      : imageDefault
-                  }
-                  direction={layout}
-                  key={`${movie.id}`}
-                >
-                  <div>
-                    <Link to={`/${movie.id}`}>
-                      <FaRegPlayCircle color="#fff" size={64} />
-                    </Link>
-                  </div>
-                  <div>
-                    <h2>{movie.original_title}</h2>
-                    <p>{handleGens(movie.genre_ids, genres)}</p>
-                    <span>
-                      <HiStar color="#fe3189" size={17.31} />{' '}
-                      {movie.vote_average}
-                    </span>
-                    <p>
-                      {movie.overview.length < 200
-                        ? movie.overview
-                        : `${movie.overview.substring(0, 200)}...`}
-                    </p>
-                  </div>
-                </Card>
+                <Fragment key={`${movie.id}`}>
+                  <Card
+                    imageUrl={
+                      movie.poster_path
+                        ? `${ImageBaseUrl}${movie.poster_path}`
+                        : ImageDefault
+                    }
+                    direction={layout}
+                  >
+                    <div>
+                      <Link to={`/${movie.id}`}>
+                        <FaRegPlayCircle color="#fff" size={64} />
+                      </Link>
+                    </div>
+                    <div>
+                      <h2>{movie.original_title}</h2>
+                      <p>{handleGens(movie.genre_ids, genres)}</p>
+                      <span>
+                        <HiStar color="#fe3189" size={17.31} />{' '}
+                        {movie.vote_average}
+                      </span>
+                      <p>
+                        {movie.overview.length < 200
+                          ? movie.overview
+                          : `${movie.overview.substring(0, 200)}...`}
+                      </p>
+                    </div>
+                  </Card>
+
+                  <CardMobile
+                    imageUrl={
+                      movie.poster_path
+                        ? `${ImageBaseUrl}${movie.poster_path}`
+                        : ImageDefault
+                    }
+                    direction={layout}
+                    to={`/${movie.id}`}
+                  >
+                    <div>
+                      <div />
+                      <div>
+                        <h2>{movie.original_title}</h2>
+                        <p>{handleGens(movie.genre_ids, genres)}</p>
+                        <span>
+                          <HiStar color="#fe3189" size={17.31} />{' '}
+                          {movie.vote_average}
+                        </span>
+                      </div>
+                    </div>
+                    <p>{movie.overview}</p>
+                  </CardMobile>
+                </Fragment>
               );
             }
           })}

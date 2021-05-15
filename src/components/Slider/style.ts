@@ -25,6 +25,20 @@ export const SliderMovies = styled(Slider)`
       content: url(${right});
     }
   }
+  @media (max-width: 768px) {
+    div {
+      div {
+        display: flex !important;
+        justify-content: center;
+      }
+    }
+    > button:first-child {
+      left: 20px;
+    }
+    > button:last-child {
+      right: 25px;
+    }
+  }
 `;
 
 interface ICardSliderProps {
@@ -32,6 +46,7 @@ interface ICardSliderProps {
 }
 export const CardSlider = styled.div`
   width: 218.53px;
+
   > div:first-child {
     width: 218.53px;
     background-image: url(${({ imageUrl }: ICardSliderProps) => imageUrl});
@@ -80,5 +95,10 @@ export const CardSlider = styled.div`
         margin-right: 10px;
       }
     }
+  }
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 `;

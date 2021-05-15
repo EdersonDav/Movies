@@ -26,6 +26,13 @@ export const HomeTitles = styled.div`
       font-weight: 600;
     }
   }
+  @media (max-width: 768px) {
+    justify-content: center;
+    margin-top: 120px;
+    h2 {
+      font-size: 16.6667px;
+    }
+  }
 `;
 
 export const HomeCatalogWrapper = styled.div`
@@ -57,5 +64,23 @@ export const HomeCatalogWrapper = styled.div`
         rgba(254, 49, 137, 0.5) 70.08%
       ),
       #ff559e;
+  }
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    margin: 44px 0 0;
+    width: 100%;
+    background: #212125;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 25px 4px rgba(0, 0, 0, 0.3);
+    > div:first-child {
+      height: 63px;
+    }
+    > div {
+      padding: 0 24px;
+    }
+    hr {
+      display: none;
+    }
   }
 `;

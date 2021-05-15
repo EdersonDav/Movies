@@ -5,7 +5,7 @@ import { HiStar } from 'react-icons/hi';
 import Layout from 'components/Layout';
 import { IMovies, ITrailer } from 'helper/interfaces';
 import { getMovieDefault, KEY } from 'service/api';
-import { imageBaseUrl, imageDefault } from 'utils/images';
+import { ImageBaseUrl, ImageDefault } from 'utils/images';
 
 import { MovieDetail, Trailer } from './style';
 
@@ -34,8 +34,8 @@ const Movie = () => {
           <MovieDetail
             imageUrl={
               movie.poster_path
-                ? `${imageBaseUrl}${movie.poster_path}`
-                : imageDefault
+                ? `${ImageBaseUrl}${movie.poster_path}`
+                : ImageDefault
             }
           >
             <div />
