@@ -8,29 +8,6 @@ export const SliderWrapper = styled.div`
   flex-direction: column;
 `;
 
-export const SliderTitles = styled.div`
-  margin-top: 87px;
-  display: flex;
-  align-items: center;
-  > span {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: #fe3189;
-    margin-right: 13px;
-  }
-  h1 {
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-    color: #eaeaea;
-    font-weight: 100;
-    strong {
-      font-weight: 600;
-    }
-  }
-`;
-
 export const SliderMovies = styled(Slider)`
   display: flex;
   margin-top: 40px;
