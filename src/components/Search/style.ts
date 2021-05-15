@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const animation = keyframes`
   0% {
@@ -16,7 +17,7 @@ const animation = keyframes`
 export const SearchContainer = styled.div`
   position: absolute;
   top: 108px;
-  height: calc(100vh - (107px + 112px));
+  height: 100vh;
   background: #18181cf2;
   width: 100%;
   z-index: 2;
@@ -69,7 +70,8 @@ export const CardsWrapper = styled.div`
 interface ICardProps {
   imageUrl: string;
 }
-export const Card = styled.div`
+export const Card = styled(Link)`
+  color: #eaeaea;
   margin-top: 15px;
   width: 302px;
   height: 191px;
