@@ -40,7 +40,7 @@
 
 **Para a utilização da API "The movie database", é necessário gerar o cadastro no site da API e inserir a chave de autenticação informada dentro do arquivo de configurações da aplicação. Alterar a constante `KEY` dentro do arquivo:**
 `/src/service/api.ts`
-`export const KEY = '(sua Key)';`
+`export const KEY = '(Key)';`
 
 **Após a instalação das dependências e inserção da chave de API, na pasta raiz do projeto execute o comando:**
 
